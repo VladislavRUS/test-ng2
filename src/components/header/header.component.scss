@@ -1,0 +1,48 @@
+.header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #022A4A;
+
+    &__content {
+        max-width: 1120px;
+        margin: 0 auto;
+    }
+
+    &__tabs {
+        display: flex;
+
+        &-item {
+            position: relative;
+            padding: 15px 0px;
+            margin: 0 20px;
+            color: white;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;  
+            cursor: pointer;
+            outline: none;
+
+            &:after {
+                position: absolute;
+                content: "";
+                bottom: 0;
+                height: 3px;
+                opacity: 0;
+                left: 0;
+                right: 0;
+                background-color: #FFBB29;
+                transform: scaleX(0);
+                transition: opacity .2s ease, transform .2s ease;
+            }
+
+            &:hover {
+                &:after {
+                    opacity: 1;
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+}

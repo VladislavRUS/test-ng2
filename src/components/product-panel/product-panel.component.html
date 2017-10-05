@@ -1,0 +1,66 @@
+<div class="product-panel" #panel>
+
+  <div class="product-panel__header" (click)="onHeaderClick()">
+
+    <div class="product-panel__title">
+      {{product.name}}
+    </div>
+
+    <div class="product-panel__info">
+
+      <div class="product-panel__item">
+        <div class="product-panel__item-title">Scenarios</div>
+        <div class="product-panel__item-value">{{product.scenarios}}</div>
+      </div>
+
+      <div class="product-panel__item">
+        <div class="product-panel__item-title">Vendor</div>
+        <div class="product-panel__item-value">{{product.vendor}}</div>
+      </div>
+
+      <div class="product-panel__item">
+        <div class="product-panel__item-title">Created</div>
+        <div class="product-panel__item-value">{{product.created}}</div>
+      </div>
+
+      <div class="product-panel__item">
+        <div class="product-panel__item-title">Version</div>
+        <div class="product-panel__item-value">{{product.version}}</div>
+      </div>
+
+      <div class="product-panel__item">
+        <div class="product-panel__item-title">Modified</div>
+        <div class="product-panel__item-value">{{product.modified}}</div>
+      </div>
+
+    </div>
+
+    <div class="product-panel__actions">
+
+      <div class="product-panel__actions-item _empty" *ngIf="removeState === 'inactive'"></div>
+
+      <div class="product-panel__actions-item _remove" (click)="setRemoveState('active', $event)" *ngIf="removeState === 'inactive'">
+
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </div>
+
+      <div class="product-panel__actions-item _cancel" (click)="setRemoveState('inactive', $event)" *ngIf="removeState === 'active'">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+
+      <div class="product-panel__actions-item _confirm" (click)="onRemove($event);" *ngIf="removeState === 'active'">
+        <i class="fa fa-check" aria-hidden="true"></i>
+      </div>
+
+      <div class="product-panel__actions-item _menu" #menuBtn [ngClass]="{ '_opened': menuOpened }" (click)="toggleMenu(); $event.stopPropagation();">
+
+        <app-product-panel-menu *ngIf="menuOpened" [menuBtn]="menuBtn" [panel]="panel"></app-product-panel-menu>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="product-panel__body" [@slideDown]="bodyState">
+
+  </div>
+</div>

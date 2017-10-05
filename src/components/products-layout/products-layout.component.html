@@ -1,0 +1,3 @@
+<div class="products-layout">
+  <app-product-panel *ngFor="let product of getProducts()" [product]="product" (removeEmitter)="remove($event)"></app-product-panel>
+</div>

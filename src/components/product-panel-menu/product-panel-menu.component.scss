@@ -1,0 +1,22 @@
+.product-panel-menu {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    opacity: 0;
+    transform: scaleY(0.2);
+    transition: transform .2s ease, opacity .2s ease;
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid #FAF9F7;
+    border-radius: 2px;
+
+    &._active {
+        transform: scale(1) translateX(70px);
+        opacity: 1; 
+    }
+
+    &._inactive {
+        transform: translate(100px);
+        opacity: 0;
+    }
+}
